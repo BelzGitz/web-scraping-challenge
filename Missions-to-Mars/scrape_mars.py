@@ -55,8 +55,8 @@ def scrape_mars():
     tables.set_index("Description", inplace=True)
     tables
     #save table to htlm
-    #tables_htlm = tables.to_html(justify = "left")
-    mars_data["tables"]=tables
+    tables_html = tables.to_html(justify = "left")
+    mars_data["tables"]=tables_html
 
     #connect to url for Mars Hemisphere images
     mars_hem_url ="https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
@@ -84,4 +84,4 @@ def scrape_mars():
 
 if __name__ == "__main__":
     result = scrape_mars()
-    print(result)
+   # print(result)
