@@ -13,37 +13,62 @@
   <div class="container-fluid">
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
-<!-- <p>Beach. Rainforest. Volcano. Tree House. Sloths.</p> -->
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
     </div>
 
-    
-    <div class="container" >
-    <div class="row">
-      <div class="col-md-12">
-    <h2>Latest Mars News</h2>
-    <h2><strong>News_Title</strong><h2>
-    <p>News_P</p>
-      </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-8">
-        <h2><strong>Featured Mars Image</strong></h2>
-        <img src="featured_image_url" alt="Featured Image ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Latest Mars News</h2>
+          <h3><strong>{{mars_data.news_title}}</strong>
+            <h3>
+              <p>
+              <h5>{{mars_data.news_p}}</p>
+              </h5>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8">
+          <h3><strong>Featured Mars Image</strong></h3>
+          <img src="{{mars_data.featured_image_url}}" alt="featured image url">
+        </div>
+      </div>
+
+
+      <div>
+        <h5>Mars Facts</h5>
+        <table>{{mars_data.tables|safe}}</table>
+      </div>
+
+      <div class="row">
+        <h5 class="text-center"> Mars Hemispheres</h5>
+      </div>
+
+      {% for hemisphere in mars_data.mars_hemispheres%}
+      <div class="col-md-6">
+        <div class="thumbnail" style='width:50%; float:left'>
+          <img src="{{hemisphere.img_url}}">
+          <h3>{{hemisphere.title}}</h3>
+
         </div>
 
-        
-    <!-- <img src="{{ vacation.sloth_img }}" alt="Sloth"> -->
-    <!-- <h2>The typical weather in Costa Rica is:</h2>
-    <h3>Max Temp: {{ vacation.max_temp }}</h3>
-    <h3>Min Temp: {{ vacation.min_temp }}</h3>
+      </div>
+      {% endfor %}
+    </div>
   </div>
-  </div> -->
+</div>
+</div>
+
+    
+
 </body>
 
 </html>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+  integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+  integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+  integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
