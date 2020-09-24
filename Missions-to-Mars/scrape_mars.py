@@ -77,7 +77,7 @@ def scrape_mars():
         hemisphere_image_urls.append({"title":title, "img_url":img_url})
         hemisphere_image_urls
         browser.back()
-        mars_data["hemisphere_image_urls"] = hemisphere_image_urls
+    mars_data["hemisphere_image_urls"] = hemisphere_image_urls
 
     #return dictionary
     return mars_data

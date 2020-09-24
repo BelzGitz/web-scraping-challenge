@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <div class="container-fluid">
+  <!-- <div class="container-fluid"> -->
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data!</a></p>
@@ -20,45 +20,46 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h2>Latest Mars News</h2>
-          <h3><strong>{{mars_data.news_title}}</strong>
-            <h3>
-              <p>
-              <h5>{{mars_data.news_p}}</p>
-              </h5>
+          <h3><strong>Latest Mars News</strong></h3>
+          <h4><strong>{{mars_data.news_title}}</strong></h4>
+              <h6>{{mars_data.news_p}}</h6>
         </div>
       </div>
+    
 
       <div class="row">
         <div class="col-md-8">
           <h3><strong>Featured Mars Image</strong></h3>
-          <img src="{{mars_data.featured_image_url}}" alt="featured image url">
+          <img src="{{mars_data.featured_image_url}}" alt="featured image url" style="width:70%;">
         </div>
+    
+
+
+      <div class="col-md-4">
+       <h3>Mars Facts</h3>
+        {{mars_data.tables|safe}}
+           
       </div>
-
-
-      <div>
-        <h5>Mars Facts</h5>
-        <table>{{mars_data.tables|safe}}</table>
       </div>
-
+    </div>
+      <div class="container">
       <div class="row">
         <h5 class="text-center"> Mars Hemispheres</h5>
-      </div>
+      
 
-      {% for hemisphere in mars_data.mars_hemispheres%}
+      {% for hemisphere in mars_data.hemisphere_image_urls %}
       <div class="col-md-6">
-        <div class="thumbnail" style='width:50%; float:left'>
-          <img src="{{hemisphere.img_url}}">
-          <h3>{{hemisphere.title}}</h3>
+           <div class="jumbotron">
+              <img src="{{hemisphere.img_url}}" class="img-thumbnail" alt="hemisphere_img_urls">
+          <div class ="col">
+          <h5>{{hemisphere.title}}</h5>
 
         </div>
-
       </div>
+      </div>
+             
       {% endfor %}
     </div>
-  </div>
-</div>
 </div>
 
     
